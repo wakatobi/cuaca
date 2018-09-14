@@ -1,3 +1,5 @@
+<!--- Note: If section are supposed to be empty, please write "N/a". -->
+<!--- Note: Use this as a guideline, you may add or delete if appropriate. -->
 <!--- Provide a general summary of the issue in the Title above -->
 
 ## Expected Behavior
