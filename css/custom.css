@@ -54,3 +54,12 @@ p {
     font-size: 25px;
 }
 
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+.site-content {
+    flex: 1;
+}
