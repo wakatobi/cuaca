@@ -1,3 +1,10 @@
+function removeWeatherData (x) {
+    var elementToRemove = document.getElementById(x);
+    if(elementToRemove){
+        elementToRemove.parentNode.removeChild(elementToRemove);
+    }
+}
+
 function getWeatherData (url) {
     fetch(url).then(function(response){
         return response.json();
