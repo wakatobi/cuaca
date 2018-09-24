@@ -1,3 +1,27 @@
+function getWeatherData (url) {
+    fetch(url).then(function(response){
+        return response.json();
+    }).then(function(weatherData){
+        var temp = weatherData.main.temp;
+        var weather = weatherData.weather[0].main;
+        var description = weatherData.weather[0].description;
+        temp = convert(temp);
+        temp = temp.toFixed();
+
+        if(document.getElementById("weatherObject")){
+            var id1 = "weatherObject";
+            var id2 = "celsius";
+            var id3 = "fahrenheit";
+
+            removeWeatherData(id1);
+            removeWeatherData(id2);
+            removeWeatherData(id3);
+        }
+
+        insertWeatherData(temp, weather, description);
+    })
+}
+
 var input = document.getElementById("input");
 
 input.addEventListener("keydown", function (a) {
