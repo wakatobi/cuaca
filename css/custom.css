@@ -1,0 +1,9 @@
+.navbar-item.is-logo {
+    position: sticky;
+    left: 50%;
+    margin-left: -63px; 
+    height: 100%;
+    display: flex;
+    align-items: center; 
+}
+
