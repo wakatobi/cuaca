@@ -19,3 +19,38 @@
     text-align: left;
 }
 
+h1 {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+}
+
+h2 {
+    font-family: 'Ubuntu';
+    font-weight: 300;
+}
+
+.footer {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+}
+
+a {
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+.title {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.lesserTitle {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+    font-size: 25px;
+}
+
