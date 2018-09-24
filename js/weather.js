@@ -1,3 +1,13 @@
+
+function convert (x, text){
+    var final = x - 273.15;
+    if (text == "F") {
+        final = final * (9/5);
+        final += 32;
+    }
+    return final;
+}
+
 function removeWeatherData (x) {
     var elementToRemove = document.getElementById(x);
     if(elementToRemove){
