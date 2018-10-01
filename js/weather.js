@@ -44,6 +44,35 @@
 
 } */
 
+function insertWeatherData (x, weather, description) {
+    // creates article element to display weather data
+    var elementToAdd = document.createElement("div");
+    elementToAdd.className = "card";
+    // elementToAdd.classList.add("is-primary");
+    // elementToAdd.classList.add("is-large")
+
+    // creates message element in article
+    var child = document.createElement("div");
+    child.className = "card-content";
+
+    // p tag
+    var content = document.createElement("p");
+    content.className = "title";
+    content.classList.add("center");
+    content.id = "content";
+
+    var weatherText = document.createTextNode(weather);
+    // var descriptionText = document.createTextNode(description);
+
+    // create texts and appends it to the message element created
+    var node = document.createTextNode(x + " ");
+    var space = document.createTextNode(" ");
+    var sign = document.createTextNode("C");
+    // var icon = document.createElement("i");
+    var br = document.createElement("br");
+    var img = document.createElement("img");
+    var degree = document.createTextNode("\xB0");
+    degree.src = "https://png.icons8.com/small/50/000000/0-degrees.png";
 
 function convert (x, text){
     var final = x - 273.15;
