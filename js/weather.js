@@ -135,7 +135,38 @@ function insertWeatherData (x, weather, description) {
     elementToAdd.appendChild(child);
     elementToAdd.id = "weatherObject";
 
+    /*
+    // creates a button
+    var celsius = document.createElement("a");
+    celsius.onclick = convert(x, "C")
+    celsius.className = "button";
+    celsius.classList.add("is-primary");
+    celsius.classList.add("is-outlined");
+    celsius.textContent = "C";
+    celsius.id = "celsius";
+
+    // creates a button
+    var farenheit = document.createElement("a");
+    farenheit.onclick = convert(x, "F");
+    farenheit.className = "button";
+    farenheit.classList.add("is-primary");
+    farenheit.classList.add("is-outlined");
+    farenheit.textContent = "F";
+    farenheit.id = "fahrenheit";
+
+    // creates new row
+    var newDiv = document.createElement('div');
+    newDiv.appendChild(celsius);
+    newDiv.appendChild(farenheit);
+
+    elementToAdd.appendChild(newDiv);    
+    */
+
+    // appends article to container
     document.getElementById("contain").appendChild(elementToAdd);
+
+}
+
 function convert (x, text){
     var final = x - 273.15;
     if (text == "F") {
