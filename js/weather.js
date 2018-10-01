@@ -74,6 +74,27 @@ function insertWeatherData (x, weather, description) {
     var degree = document.createTextNode("\xB0");
     degree.src = "https://png.icons8.com/small/50/000000/0-degrees.png";
 
+    
+    var weatherMap = new Map();
+    var keyString = 'Clear';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/sun.png');
+    keyString = 'Fog';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-night.png');
+    keyString = 'Mist';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-night.png');
+    keyString = 'Rain';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/rain.png');
+    keyString = 'Hail';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/hail.png');
+    keyString = 'Haze';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-day.png');
+    keyString = 'Snow';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/winter.png');
+    keyString = 'Clouds';
+    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/clouds.png');
+
+    img.src = weatherMap.get(weather);
+
 function convert (x, text){
     var final = x - 273.15;
     if (text == "F") {
