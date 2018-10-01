@@ -121,6 +121,21 @@ function insertWeatherData (x, weather, description) {
 
     */
 
+    // appends message to article
+    content.appendChild(node); // adds temperature
+    content.appendChild(degree);
+    content.appendChild(sign); // celsius sign
+    content.appendChild(br); // adds break
+    content.appendChild(img); // appends logo
+    content.appendChild(space); // adds blank space
+    content.appendChild(weatherText); // weather info
+
+    // appends divs and set id
+    child.appendChild(content);
+    elementToAdd.appendChild(child);
+    elementToAdd.id = "weatherObject";
+
+    document.getElementById("contain").appendChild(elementToAdd);
 function convert (x, text){
     var final = x - 273.15;
     if (text == "F") {
