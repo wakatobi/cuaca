@@ -95,6 +95,32 @@ function insertWeatherData (x, weather, description) {
 
     img.src = weatherMap.get(weather);
 
+    /*
+
+    if (weather === "Fog" || weather === "Mist"){
+        img.src = "https://png.icons8.com/ios/50/000000/fog-night.png";
+    }
+    else if (weather === "Clouds"){
+        img.src = "https://png.icons8.com/ios/50/000000/clouds.png";
+    }
+    else if (weather === "Rain"){
+        img.src = "https://png.icons8.com/ios/50/000000/rain.png";
+    }
+    else if(weather === "Snow"){
+        img.src = "https://png.icons8.com/ios/50/000000/winter.png";
+    }
+    else if(weather === "Hail"){
+        img.src = "https://png.icons8.com/ios/50/000000/hail.png";
+    }
+    else if(weather == "Haze"){
+        img.src = "https://png.icons8.com/ios/50/000000/fog-day.png";
+    }
+    else {
+        img.src = "https://png.icons8.com/ios/50/000000/sun.png";
+    }
+
+    */
+
 function convert (x, text){
     var final = x - 273.15;
     if (text == "F") {
