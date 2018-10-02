@@ -44,7 +44,7 @@
 
 } */
 
-function insertWeatherData (x, weather, description) {
+function insertWeatherData (x, weather) {
     // creates article element to display weather data
     var elementToAdd = document.createElement("div");
     elementToAdd.className = "card";
@@ -189,7 +189,7 @@ function getWeatherData (url) {
     }).then(function(weatherData){
         var temp = weatherData.main.temp;
         var weather = weatherData.weather[0].main;
-        var description = weatherData.weather[0].description;
+        // var description = weatherData.weather[0].description;
         temp = convert(temp);
         temp = temp.toFixed();
 
@@ -203,7 +203,7 @@ function getWeatherData (url) {
             removeWeatherData(id3);
         }
 
-        insertWeatherData(temp, weather, description);
+        insertWeatherData(temp, weather);
     })
 }
 
