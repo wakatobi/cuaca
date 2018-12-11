@@ -1,49 +1,3 @@
-/* function insertWeatherData (x) {
-    // creates article element to display weather data
-    var elementToAdd = document.createElement("article");
-    elementToAdd.className = "message";
-    elementToAdd.classList.add("is-primary");
-    elementToAdd.classList.add("is-large")
-
-    // creates message element in article
-    var child = document.createElement("div");
-    child.className = "message-body";
-
-    // create texts and appends it to the message element created
-    var node = document.createTextNode(x);
-    child.appendChild(node);
-
-    // appends message to article
-    elementToAdd.appendChild(child);
-    elementToAdd.id = "weatherObject";
-
-    // creates a button
-    var celsius = document.createElement("button");
-    celsius.className = "button";
-    celsius.classList.add("is-primary");
-    celsius.classList.add("is-outlined");
-    celsius.textContent = "C";
-    celsius.id = "celsius";
-
-    var farenheit = document.createElement("button");
-    farenheit.className = "button";
-    farenheit.classList.add("is-primary");
-    farenheit.classList.add("is-outlined");
-    farenheit.textContent = "F";
-    farenheit.id = "fahrenheit";
-
-    // creates new row
-    var newDiv = document.createElement('div');
-    newDiv.appendChild(celsius);
-    newDiv.appendChild(farenheit);
-    
-    // appends article to container
-    document.getElementById("contain").appendChild(elementToAdd);
-    document.getElementById("contain").appendChild(newDiv);
-
-
-} */
-
 function insertWeatherData (x, weather) {
     // creates article element to display weather data
     var elementToAdd = document.createElement("div");
@@ -88,32 +42,6 @@ function insertWeatherData (x, weather) {
 
     img.src = weatherMap.get(weather);
 
-    /*
-
-    if (weather === "Fog" || weather === "Mist"){
-        img.src = "https://png.icons8.com/ios/50/000000/fog-night.png";
-    }
-    else if (weather === "Clouds"){
-        img.src = "https://png.icons8.com/ios/50/000000/clouds.png";
-    }
-    else if (weather === "Rain"){
-        img.src = "https://png.icons8.com/ios/50/000000/rain.png";
-    }
-    else if(weather === "Snow"){
-        img.src = "https://png.icons8.com/ios/50/000000/winter.png";
-    }
-    else if(weather === "Hail"){
-        img.src = "https://png.icons8.com/ios/50/000000/hail.png";
-    }
-    else if(weather == "Haze"){
-        img.src = "https://png.icons8.com/ios/50/000000/fog-day.png";
-    }
-    else {
-        img.src = "https://png.icons8.com/ios/50/000000/sun.png";
-    }
-
-    */
-
     // appends message to article
     content.appendChild(node); // adds temperature
     content.appendChild(degree);
@@ -127,33 +55,6 @@ function insertWeatherData (x, weather) {
     child.appendChild(content);
     elementToAdd.appendChild(child);
     elementToAdd.id = "weatherObject";
-
-    /*
-    // creates a button
-    var celsius = document.createElement("a");
-    celsius.onclick = convert(x, "C")
-    celsius.className = "button";
-    celsius.classList.add("is-primary");
-    celsius.classList.add("is-outlined");
-    celsius.textContent = "C";
-    celsius.id = "celsius";
-
-    // creates a button
-    var farenheit = document.createElement("a");
-    farenheit.onclick = convert(x, "F");
-    farenheit.className = "button";
-    farenheit.classList.add("is-primary");
-    farenheit.classList.add("is-outlined");
-    farenheit.textContent = "F";
-    farenheit.id = "fahrenheit";
-
-    // creates new row
-    var newDiv = document.createElement('div');
-    newDiv.appendChild(celsius);
-    newDiv.appendChild(farenheit);
-
-    elementToAdd.appendChild(newDiv);    
-    */
 
     // appends article to container
     document.getElementById("contain").appendChild(elementToAdd);
