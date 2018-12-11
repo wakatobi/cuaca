@@ -1,0 +1,19 @@
+{
+  "name": "cuaca",
+  "version": "1.0.0",
+  "description": "Weather reporting site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakatobi/cuaca.git"
+  },
+  "author": "Wakatobi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wakatobi/cuaca/issues"
+  },
+  "homepage": "https://github.com/wakatobi/cuaca#readme"
+}
