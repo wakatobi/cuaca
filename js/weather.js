@@ -2,8 +2,6 @@ function insertWeatherData (x, weather) {
     // creates article element to display weather data
     var elementToAdd = document.createElement("div");
     elementToAdd.className = "card";
-    // elementToAdd.classList.add("is-primary");
-    // elementToAdd.classList.add("is-large")
 
     // creates message element in article
     var child = document.createElement("div");
@@ -26,8 +24,6 @@ function insertWeatherData (x, weather) {
     var br = document.createElement("br");
     var img = document.createElement("img");
     var degree = document.createTextNode("\xB0");
-    degree.src = "https://png.icons8.com/small/50/000000/0-degrees.png";
-
     
     var weatherMap = new Map();
     weatherMap.set('Clear', 'https://png.icons8.com/ios/50/000000/sun.png');
