@@ -1,4 +1,10 @@
-function insertWeatherData (x, weather) {
+enum TemperatureScale {
+    Celsius,
+    Kelvin,
+    Fahrenheit
+}
+
+function insertWeatherData(x, weather) {
     // creates article element to display weather data
     var elementToAdd = document.createElement("div");
     elementToAdd.className = "card";
@@ -23,7 +29,7 @@ function insertWeatherData (x, weather) {
     var br = document.createElement("br");
     var img = document.createElement("img");
     var degree = document.createTextNode("\xB0");
-    
+
     var weatherMap = new Map();
     weatherMap.set('Clear', 'https://png.icons8.com/ios/50/000000/sun.png');
     weatherMap.set('Fog', 'https://png.icons8.com/ios/50/000000/fog-night.png');
@@ -56,32 +62,50 @@ function insertWeatherData (x, weather) {
 
 }
 
-function convertKelvinTo (kelvin, scale){
-    var final = kelvin - 273.15;
-    if (scale == "F") {
-        final *= (9/5);
-        final += 32;
+/**
+ * Convert Kelvin to target temperature scale.
+ *
+ * @param {number} kelvin Temperature in Kelvin.
+ * @param {TemperatureScale} [scale=TemperatureScale.Celsius] Target scale.
+ * @returns {number} Kelvin in target scale.
+ */
+function convertKelvinTo(kelvin: number, scale: TemperatureScale = TemperatureScale.Celsius): number {
+
+    let final: number = 0;
+
+    switch (scale) {
+        case TemperatureScale.Celsius:
+            final = kelvin - 273.15;
+            break;
+        case TemperatureScale.Fahrenheit:
+            final *= (9 / 5);
+            final += 32;
+            break;
+        default:
+            final = kelvin;
+            break;
     }
+
     return final;
 }
 
-function removeWeatherData (id) {
+function removeWeatherData(id) {
     var elementToRemove = document.getElementById(id);
-    if(elementToRemove){
+    if (elementToRemove) {
         elementToRemove.parentNode.removeChild(elementToRemove);
     }
 }
 
-function getWeatherData (url) {
-    fetch(url).then(function(response){
+function getWeatherData(url) {
+    fetch(url).then(function (response) {
         return response.json();
-    }).then(function(weatherData){
+    }).then(function (weatherData) {
         var temperature = weatherData.main.temp;
         var weather = weatherData.weather[0].main;
-        temperature = convertKelvinTo(temperature, "C");
+        temperature = convertKelvinTo(temperature);
         temperature = temperature.toFixed();
 
-        if(document.getElementById("weatherObject")){
+        if (document.getElementById("weatherObject")) {
             var id1 = "weatherObject";
             var id2 = "celsius";
             var id3 = "fahrenheit";
