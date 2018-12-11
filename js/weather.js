@@ -76,22 +76,15 @@ function insertWeatherData (x, weather) {
 
     
     var weatherMap = new Map();
-    var keyString = 'Clear';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/sun.png');
-    keyString = 'Fog';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-night.png');
-    keyString = 'Mist';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-night.png');
-    keyString = 'Rain';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/rain.png');
-    keyString = 'Hail';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/hail.png');
-    keyString = 'Haze';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/fog-day.png');
-    keyString = 'Snow';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/winter.png');
-    keyString = 'Clouds';
-    weatherMap.set(keyString, 'https://png.icons8.com/ios/50/000000/clouds.png');
+    weatherMap.set('Clear', 'https://png.icons8.com/ios/50/000000/sun.png');
+    weatherMap.set('Fog', 'https://png.icons8.com/ios/50/000000/fog-night.png');
+    weatherMap.set('Mist', 'https://png.icons8.com/ios/50/000000/fog-night.png');
+    weatherMap.set('Rain', 'https://png.icons8.com/ios/50/000000/rain.png');
+    weatherMap.set('Hail', 'https://png.icons8.com/ios/50/000000/hail.png');
+    weatherMap.set('Haze', 'https://png.icons8.com/ios/50/000000/fog-day.png');
+    weatherMap.set('Snow', 'https://png.icons8.com/ios/50/000000/winter.png');
+    weatherMap.set('Clouds', 'https://png.icons8.com/ios/50/000000/clouds.png');
+
 
     img.src = weatherMap.get(weather);
 
