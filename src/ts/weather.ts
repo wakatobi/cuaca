@@ -68,6 +68,11 @@ weatherMap.set('Haze', new URL('https://png.icons8.com/ios/50/000000/fog-day.png
 weatherMap.set('Snow', new URL('https://png.icons8.com/ios/50/000000/winter.png'));
 weatherMap.set('Clouds', new URL('https://png.icons8.com/ios/50/000000/clouds.png'));
 
+/**
+ * Insert weather information to DOM.
+ *
+ * @param {WeatherData} weatherData Weather data.
+ */
 function insertWeatherData(weatherData: WeatherData) {
     let card: Element = document.createElement("div");
     card.className = "card";
@@ -122,6 +127,11 @@ function convertKelvinTo(kelvin: number, scale: TemperatureScale = TemperatureSc
     return final;
 }
 
+/**
+ * Remove weather information from DOM.
+ *
+ * @param {*} id
+ */
 function removeWeatherData(id) {
     let elementToRemove: Element = document.getElementById(id);
     if (elementToRemove) {
