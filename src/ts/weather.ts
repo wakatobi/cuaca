@@ -126,6 +126,7 @@ input.addEventListener("keydown", function (a) {
         var address = "http://api.openweathermap.org/data/2.5/weather?q=";
         address += input.value;
         address += "&APPID={INSERT_YOUR_API_KEY_HERE}"
+        address += "&units=metric";
         getWeatherData(address);
     }
 });
