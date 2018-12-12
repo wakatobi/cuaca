@@ -4,62 +4,95 @@ enum TemperatureScale {
     Fahrenheit
 }
 
-function insertWeatherData(x, weather) {
-    // creates article element to display weather data
-    var elementToAdd = document.createElement("div");
-    elementToAdd.className = "card";
+export interface Coord {
+    lon: number;
+    lat: number;
+}
 
-    // creates message element in article
-    var child = document.createElement("div");
-    child.className = "card-content";
+export interface WeatherCondition {
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+}
 
-    var content = document.createElement("p");
-    content.className = "title";
-    content.classList.add("center");
-    content.id = "content";
+export interface Main {
+    temp: number;
+    pressure: number;
+    humidity: number;
+    temp_min: number;
+    temp_max: number;
+}
 
-    var weatherText = document.createTextNode(weather);
-    // var descriptionText = document.createTextNode(description);
+export interface Wind {
+    speed: number;
+    deg: number;
+}
 
-    // create texts and appends it to the message element created
-    var node = document.createTextNode(x + " ");
-    var space = document.createTextNode(" ");
-    var sign = document.createTextNode("C");
-    // var icon = document.createElement("i");
-    var br = document.createElement("br");
-    var img = document.createElement("img");
-    var degree = document.createTextNode("\xB0");
+export interface Clouds {
+    all: number;
+}
 
-    var weatherMap = new Map();
-    weatherMap.set('Clear', 'https://png.icons8.com/ios/50/000000/sun.png');
-    weatherMap.set('Fog', 'https://png.icons8.com/ios/50/000000/fog-night.png');
-    weatherMap.set('Mist', 'https://png.icons8.com/ios/50/000000/fog-night.png');
-    weatherMap.set('Rain', 'https://png.icons8.com/ios/50/000000/rain.png');
-    weatherMap.set('Hail', 'https://png.icons8.com/ios/50/000000/hail.png');
-    weatherMap.set('Haze', 'https://png.icons8.com/ios/50/000000/fog-day.png');
-    weatherMap.set('Snow', 'https://png.icons8.com/ios/50/000000/winter.png');
-    weatherMap.set('Clouds', 'https://png.icons8.com/ios/50/000000/clouds.png');
+export interface Sys {
+    type: number;
+    id: number;
+    message: number;
+    country: string;
+    sunrise: number;
+    sunset: number;
+}
 
+export interface WeatherData {
+    coord: Coord;
+    weather: WeatherCondition[];
+    base: string;
+    main: Main;
+    visibility: number;
+    wind: Wind;
+    clouds: Clouds;
+    dt: number;
+    sys: Sys;
+    id: number;
+    name: string;
+    cod: number;
+}
 
-    img.src = weatherMap.get(weather);
+let weatherMap: Map<string, URL> = new Map();
 
-    // appends message to article
-    content.appendChild(node); // adds temperature
-    content.appendChild(degree);
-    content.appendChild(sign); // celsius sign
-    content.appendChild(br); // adds break
-    content.appendChild(img); // appends logo
-    content.appendChild(space); // adds blank space
-    content.appendChild(weatherText); // weather info
+weatherMap.set('Clear', new URL('https://png.icons8.com/ios/50/000000/sun.png'));
+weatherMap.set('Fog', new URL('https://png.icons8.com/ios/50/000000/fog-night.png'));
+weatherMap.set('Mist', new URL('https://png.icons8.com/ios/50/000000/fog-night.png'));
+weatherMap.set('Rain', new URL('https://png.icons8.com/ios/50/000000/rain.png'));
+weatherMap.set('Hail', new URL('https://png.icons8.com/ios/50/000000/hail.png'));
+weatherMap.set('Haze', new URL('https://png.icons8.com/ios/50/000000/fog-day.png'));
+weatherMap.set('Snow', new URL('https://png.icons8.com/ios/50/000000/winter.png'));
+weatherMap.set('Clouds', new URL('https://png.icons8.com/ios/50/000000/clouds.png'));
 
-    // appends divs and set id
-    child.appendChild(content);
-    elementToAdd.appendChild(child);
-    elementToAdd.id = "weatherObject";
+function insertWeatherData(weatherData: WeatherData) {
+    let card: Element = document.createElement("div");
+    card.className = "card";
+    card.id = "weatherObject";
 
-    // appends article to container
-    document.getElementById("contain").appendChild(elementToAdd);
+    let cardContent: Element = document.createElement("div");
+    cardContent.className = "card-content";
 
+    let weatherInfo: Element = document.createElement("p");
+    weatherInfo.className = "title";
+    weatherInfo.classList.add("center");
+    weatherInfo.id = "content";
+
+    let weatherText: string = `${weatherData.main.temp} \xB0C<br>`;
+
+    let weatherImage: HTMLImageElement = document.createElement("img");
+
+    weatherImage.src = weatherMap.get(weatherData.weather[0].main).href;
+
+    card.append(weatherInfo);
+    weatherInfo.innerHTML = weatherText;
+    weatherInfo.append(weatherImage);
+    weatherInfo.innerHTML += weatherData.weather[0].main;
+
+    document.getElementById("contain").appendChild(card);
 }
 
 /**
@@ -99,11 +132,10 @@ function removeWeatherData(id) {
 function getWeatherData(url) {
     fetch(url).then(function (response) {
         return response.json();
-    }).then(function (weatherData) {
-        var temperature = weatherData.main.temp;
-        var weather = weatherData.weather[0].main;
-        temperature = convertKelvinTo(temperature);
-        temperature = temperature.toFixed();
+    }).then(function (weatherData: WeatherData) {
+        //let temperature: number = weatherData.main.temp;
+        //let weatherCondition: WeatherCondition = weatherData.weatherCondition[0];
+        //temperature = convertKelvinTo(temperature);
 
         if (document.getElementById("weatherObject")) {
             var id1 = "weatherObject";
@@ -115,7 +147,7 @@ function getWeatherData(url) {
             removeWeatherData(id3);
         }
 
-        insertWeatherData(temperature, weather);
+        insertWeatherData(weatherData);
     })
 }
 
