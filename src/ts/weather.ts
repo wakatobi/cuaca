@@ -71,7 +71,7 @@ weatherMap.set('Clouds', new URL('https://png.icons8.com/ios/50/000000/clouds.pn
 function insertWeatherData(weatherData: WeatherData) {
     let card: Element = document.createElement("div");
     card.className = "card";
-    card.id = "weatherObject";
+    card.id = "weather-info-card";
 
     let cardContent: Element = document.createElement("div");
     cardContent.className = "card-content";
@@ -149,8 +149,8 @@ input.addEventListener("keydown", function (a) {
         let url: URL = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=${units}&APPID=${apiKey}`);
 
         getWeatherData(url).then(data => {
-            if (document.getElementById("weatherObject")) {
-                removeWeatherData("weatherObject");
+            if (document.getElementById("weather-info-card")) {
+                removeWeatherData("weather-info-card");
             }
 
             insertWeatherData(data);
