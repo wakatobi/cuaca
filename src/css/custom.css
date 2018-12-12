@@ -1,0 +1,65 @@
+.navbar-item.is-logo {
+    position: sticky;
+    left: 50%;
+    margin-left: -63px; 
+    height: 100%;
+    display: flex;
+    align-items: center; 
+}
+
+.center {
+    text-align: center;
+} 
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+h1 {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+}
+
+h2 {
+    font-family: 'Ubuntu';
+    font-weight: 300;
+}
+
+.footer {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+}
+
+a {
+    color: black;
+}
+
+p {
+    color: black;
+}
+
+.title {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.lesserTitle {
+    font-family: 'Ubuntu';
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+.site-content {
+    flex: 1;
+}
