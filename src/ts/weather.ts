@@ -144,10 +144,16 @@ let input: HTMLInputElement = document.getElementById("input") as HTMLInputEleme
 
 input.addEventListener("keydown", function (a) {
     if (a.keyCode === 13) {  // When "enter" is pressed.
-        var address = "http://api.openweathermap.org/data/2.5/weather?q=";
-        address += input.value;
-        address += "&APPID={INSERT_YOUR_API_KEY_HERE}"
-        address += "&units=metric";
-        getWeatherData(address);
+        let apiKey: string = ""; // Insert your api key here.
+        let units: string = "metric";
+        let url: URL = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=${units}&APPID=${apiKey}`);
+
+        getWeatherData(url).then(data => {
+            if (document.getElementById("weatherObject")) {
+                removeWeatherData("weatherObject");
+            }
+
+            insertWeatherData(data);
+        });
     }
 });
