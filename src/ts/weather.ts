@@ -129,19 +129,15 @@ function removeWeatherData(id) {
     }
 }
 
-function getWeatherData(url) {
-    fetch(url).then(function (response) {
+/**
+ * Get weather data.
+ *
+ * @param {*} url API url.
+ */
+function getWeatherData(url: URL): Promise<WeatherData> {
+    return fetch(url.href).then(response => {
         return response.json();
-    }).then(function (weatherData: WeatherData) {
-
-        if (document.getElementById("weatherObject")) {
-            var id1 = "weatherObject";
-
-            removeWeatherData(id1);
-        }
-
-        insertWeatherData(weatherData);
-    })
+    });
 }
 
 let input: HTMLInputElement = document.getElementById("input") as HTMLInputElement;
