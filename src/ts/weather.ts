@@ -123,7 +123,7 @@ function convertKelvinTo(kelvin: number, scale: TemperatureScale = TemperatureSc
 }
 
 function removeWeatherData(id) {
-    var elementToRemove = document.getElementById(id);
+    let elementToRemove: Element = document.getElementById(id);
     if (elementToRemove) {
         elementToRemove.parentNode.removeChild(elementToRemove);
     }
