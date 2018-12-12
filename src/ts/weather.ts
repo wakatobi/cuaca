@@ -133,18 +133,11 @@ function getWeatherData(url) {
     fetch(url).then(function (response) {
         return response.json();
     }).then(function (weatherData: WeatherData) {
-        //let temperature: number = weatherData.main.temp;
-        //let weatherCondition: WeatherCondition = weatherData.weatherCondition[0];
-        //temperature = convertKelvinTo(temperature);
 
         if (document.getElementById("weatherObject")) {
             var id1 = "weatherObject";
-            var id2 = "celsius";
-            var id3 = "fahrenheit";
 
             removeWeatherData(id1);
-            removeWeatherData(id2);
-            removeWeatherData(id3);
         }
 
         insertWeatherData(weatherData);
