@@ -81,7 +81,7 @@ function insertWeatherData(weatherData: WeatherData) {
     weatherInfo.classList.add("center");
     weatherInfo.id = "content";
 
-    let weatherText: string = `${weatherData.main.temp} \xB0C<br>`;
+    let weatherText: string = `${weatherData.name}<br>${weatherData.main.temp} \xB0C<br>`;
 
     let weatherImage: HTMLImageElement = document.createElement("img");
 
