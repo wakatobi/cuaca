@@ -119,7 +119,7 @@ function getWeatherData(url) {
     })
 }
 
-var input = document.getElementById("input");
+let input: HTMLInputElement = document.getElementById("input") as HTMLInputElement;
 
 input.addEventListener("keydown", function (a) {
     if (a.keyCode === 13) {  // When "enter" is pressed.
